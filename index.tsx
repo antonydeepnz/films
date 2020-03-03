@@ -4,7 +4,11 @@ import { render } from 'react-dom'
 import styled from 'styled-components'
 import axios from 'axios'
 
-import axiosOMBD from './utils/axios_inst'
+import Demo from './components/test'
+
+import Accordion from './components/accordionItem'
+
+// import axiosOMBD from './utils/axios_inst'
 
 const MainContainer = styled.div`
   position: relative;
@@ -16,21 +20,24 @@ const MainContainer = styled.div`
 const App = () => {
   const [data, setData] = useState({})
   
-  useEffect(() => {
-   const getData = async() => {
-    const result = await axios.get('https://cors-anywhere.herokuapp.com/http://www.omdbapi.com/?apikey=2e8a9edb&type=movie&page=26')
-    //await setData(result.data)
-    await console.log(result.data)
-   }
-
-   getData()
-  }, [])
 
   return(
     <MainContainer>
+      <Accordion/>
       
     </MainContainer>
   )
 }
-
+// <Demo />
 render(<App />, document.getElementById('root'));
+
+
+  // useEffect(() => {
+  //  const getData = async() => {
+  //   const result = await axios.get('https://cors-anywhere.herokuapp.com/http://www.omdbapi.com/?apikey=2e8a9edb&type=movie&page=26')
+  //   //await setData(result.data)
+  //   await console.log(result.data)
+  //  }
+
+  //  getData()
+  // }, [])
