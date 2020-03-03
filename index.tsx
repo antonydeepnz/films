@@ -7,7 +7,7 @@ import axios from 'axios'
 import Demo from './components/test'
 
 import Accordion from './components/accordionItem'
-import Test from './components/test'
+import Test from './components/tests'
 
 // import axiosOMBD from './utils/axios_inst'
 

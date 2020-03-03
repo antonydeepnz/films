@@ -9,11 +9,10 @@ const data = [
 
 const One = ({title}) => {
   const [open, setOpen] = useState(false)
-  
-  console.log(`${title}-${open}`)
+
   return(
-    <div>
-      {title}
+    <div onClick={()=>(setOpen(!open))}>
+      {`${title}-${open}`}
     </div>
   )
 }
