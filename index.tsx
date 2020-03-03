@@ -18,26 +18,20 @@ const MainContainer = styled.div`
   background-color: grey; 
 `
 
+const data1 = [
+  {title:'sdfdsfsdf', year: 1999, desc: 'esfsdffwdasdfsgdsffefds sdf f dsf e gs'},
+  {title:'54fdhjgdf', year: 1989, desc: 'cxzcdsfds sffefds sdf f dsf e gs'},
+  {title:'qwret', year: 2000, desc: '45545356 sg899 sdf f dsf e gs'},
+  {title:'zxvcvbv56', year: 2012, desc: 'es 3243 fssdvgdgdfg dsffefds sdf f dsf e gs'}
+]
+
 const App = () => {
-  const [data, setData] = useState({})
-  
 
   return(
     <MainContainer>
-      <Test />
+      <Test array={data1}/>
     </MainContainer>
   )
 }
-// <Demo />
+
 render(<App />, document.getElementById('root'));
-
-
-  // useEffect(() => {
-  //  const getData = async() => {
-  //   const result = await axios.get('https://cors-anywhere.herokuapp.com/http://www.omdbapi.com/?apikey=2e8a9edb&type=movie&page=26')
-  //   //await setData(result.data)
-  //   await console.log(result.data)
-  //  }
-
-  //  getData()
-  // }, [])

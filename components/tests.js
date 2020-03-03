@@ -1,11 +1,5 @@
 import React, { useState } from 'react'
 
-const data = [
-  {title:'sdfdsfsdf', year: 1999, desc: 'esfsdffwdasdfsgdsffefds sdf f dsf e gs'},
-  {title:'54fdhjgdf', year: 1989, desc: 'cxzcdsfds sffefds sdf f dsf e gs'},
-  {title:'qwret', year: 2000, desc: '45545356 sg899 sdf f dsf e gs'},
-  {title:'zxvcvbv56', year: 2012, desc: 'es 3243 fssdvgdgdfg dsffefds sdf f dsf e gs'}
-]
 
 const One = ({title}) => {
   const [open, setOpen] = useState(false)
@@ -25,13 +19,13 @@ const Two = ({desc, year}) => {
   )
 }
 
-const Test = () => {
+const Test = ({ array }) => {
   const [state, setState] = useState()
   return(
     <div>
-      {data.map(item => (
+      {array.map(item => (
         <>
-        <One title={item.title}/>
+        <One key={item.title} title={item.title} />
         <Two desc={item.desc} year={item.year}/>
         </>
       ))}
