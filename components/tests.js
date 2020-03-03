@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
+import styled from 'styled-components'
 
-
-const One = ({title, children}) => {
-  const [isOpen, setIsopen] = useState(false)
+const One = ({title, children, bool}) => {
+  const [isOpen, setIsopen] = useState(false|bool)
 
   return(
     <div onClick={()=>(setIsopen(!isOpen))}>
@@ -12,22 +12,27 @@ const One = ({title, children}) => {
   )
 }
 
-const Two = ({desc, year}) => {
+const T = styled.div`
+  display: ${props => props.isOpen ? 'block' : 'none'};
+  height: ${props => props.isOpen ? '25px' : '0px'};
+`
+
+const Two = ({desc, year, bool}) => {
   return(
-    <div>
+    <T isOpen={bool}>
       {desc}{year}
-    </div>
+    </T>
   )
 }
 
 const Test = ({ array }) => {
-  const [state, setState] = useState()
+  const [state, setState] = useState(false)
   return(
     <div>
       {array.map(item => (
         <>
         <One key={item.title} title={item.title}>
-          <Two desc={item.desc} year={item.year}/>
+          <Two desc={item.desc} year={item.year} bool={true}/>
         </One>
         
         </>
