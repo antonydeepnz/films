@@ -14,15 +14,15 @@ const Two = ({desc, year, bool}) => {
   )
 }
 
-const One = ({title, children, bool}) => {
-  const [isOpen, setIsopen] = useState(false)
-  const handleClick = (e) => {
-    setIsopen(!isOpen)
-    //bool()
-    //console.log(e.target)
-  }
+const One = ({title, children, isOpen=false}) => {
+  // const [isOpen, setIsopen] = useState(false)
+  // const handleClick = (e) => {
+  //   setIsopen(!isOpen)
+  //   //bool(e)
+  //   console.log(e.currentTarget)
+  // }
   return(
-    <div onClick={handleClick}>
+    <div onClick={}>
       {`${title}-${isOpen}`}
       <T isOpen={isOpen}/>
     </div>
@@ -30,17 +30,17 @@ const One = ({title, children, bool}) => {
 }
 
 const Test = ({ array }) => {
-  const [index, setIndex] = useState(null)
+  const [open, setOpen] = useState(false)
 
-  const a = (e) => {
-    console.log(e.target.current)
+  const getSelected = () => {
+    
   } 
   return(
     <div onClick={()=> {console.log()}}>
       {array.map((item, i) => {
         return (
           <div>
-            <One key={item.title} title={item.title} bool={a}>
+            <One key={item.title} title={item.title} isOpen={open}>
             </One>
           </div>
         )
