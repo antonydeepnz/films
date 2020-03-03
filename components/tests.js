@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
 
 
-const One = ({title}) => {
-  const [open, setOpen] = useState(false)
+const One = ({title, children}) => {
+  const [isOpen, setIsopen] = useState(false)
 
   return(
-    <div onClick={()=>(setOpen(!open))}>
-      {`${title}-${open}`}
+    <div onClick={()=>(setIsopen(!isOpen))}>
+      {`${title}-${isOpen}`}
+      {children}
     </div>
   )
 }
@@ -25,8 +26,10 @@ const Test = ({ array }) => {
     <div>
       {array.map(item => (
         <>
-        <One key={item.title} title={item.title} />
-        <Two desc={item.desc} year={item.year}/>
+        <One key={item.title} title={item.title}>
+          <Two desc={item.desc} year={item.year}/>
+        </One>
+        
         </>
       ))}
     </div>
