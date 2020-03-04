@@ -1,30 +1,32 @@
-import React, { useState } from 'react'
+import React, { useState, useRef, useCallback } from 'react'
 import styled from 'styled-components'
 
 const T = styled.div`
+  overflow: hidden; 
   height: ${props => props.isOpen ? '25px' : '0px'};
   transition: height 0.5s;
 `
 
-const Two = ({desc, year, bool}) => {
+const Two = ({desc, year, bool, getHeight}) => {
+  const ref = useRef(null)
+
+
   return(
-    <T isOpen={bool}>
+    <T ref={ref} isOpen={bool}>
       {desc}{year}
     </T>
   )
 }
 
 const One = ({title, children, func, bool}) => {
-  //const [isOpen, setOpen] = useState(false)
   const handleClick = () => {
     func()
-    //setOpen(bool)
-    //console.log(isOpen)
+
   }
   return(
     <div onClick={handleClick}>
       {`${title}-${bool}`}
-      <T isOpen={bool}/>
+      <T isOpen={bool} getHeight={}/>
     </div>
   )
 }
@@ -33,10 +35,8 @@ const Test = ({ array }) => {
   const [active, setActive] = useState(-1)
   
   const getSelected = (key) => {
-    console.log(key, active)
     const result = (key === active)? -1: key
-    setActive(()=>result)
-    //console.log(active)
+    setActive(result)
   } 
   return(
     <div>
@@ -45,7 +45,7 @@ const Test = ({ array }) => {
             <One key={item.title} 
                 title={item.title} 
                 func={() => getSelected(i)}
-                bool={(i === active)} />
+                bool={i === active} />
         )
       })}
     </div>
