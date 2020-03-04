@@ -9,6 +9,7 @@ import Demo from './components/test'
 import Accordion from './components/accordionItem'
 import Test from './components/tests'
 
+import { getFilms, getError } from './store/actions/actions'
 // import axiosOMBD from './utils/axios_inst'
 
 const MainContainer = styled.div`
@@ -26,7 +27,6 @@ const data1 = [
 ]
 
 const App = () => {
-
   return(
     <MainContainer>
       <Test array={data1}/>

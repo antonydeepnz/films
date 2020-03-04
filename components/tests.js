@@ -8,6 +8,12 @@ const T = styled.div`
   transition: height 0.5s;
 `
 
+const Image = styled.img`
+  position: relative;
+  transform: rotate(${props => props.isOpen ? '90deg' : '0deg'});
+  transition: transform 0.5s;
+`
+
 const Two = ({desc, year, bool, getHeight}) => {
   const ref = useRef(null)
 
@@ -24,8 +30,9 @@ const One = ({title, desc, year, func, bool}) => {
     func()
   }
   return(
-    <div onClick={handleClick}>
+    <div onClick={handleClick} style={{position: "relative", height: 'auto'}}>
       {`${title}-${bool}`}
+      <Image isOpen={bool} src="https://img.icons8.com/metro/26/000000/chevron-right.png" />
       <T isOpen={bool} desc={desc} year={year}/>
     </div>
   )
