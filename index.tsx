@@ -29,7 +29,7 @@ const data1 = [
 const App = () => {
   return(
     <MainContainer>
-      <Test array={data1}/>
+      <Test array={data1} />
     </MainContainer>
   )
 }

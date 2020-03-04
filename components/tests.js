@@ -25,25 +25,31 @@ const Two = ({desc, year, bool, getHeight}) => {
   )
 }
 
-const One = ({title, desc, year, func, bool}) => {
+const One = ({title, desc, year, func, bool, multiSelect}) => {
+  const [ opened, setOpened ] = useState(false)
+
   const handleClick = () => {
-    func()
+    multiSelect
+      ? console.log(setOpened(!opened))
+      : func()
   }
   return(
     <div onClick={handleClick} style={{position: "relative", height: 'auto'}}>
       {`${title}-${bool}`}
-      <Image isOpen={bool} src="https://img.icons8.com/metro/26/000000/chevron-right.png" />
-      <T isOpen={bool} desc={desc} year={year}/>
+      <Image isOpen={bool || opened} src="https://img.icons8.com/metro/26/000000/chevron-right.png" />
+      <T isOpen={bool || opened} desc={desc} year={year}/>
     </div>
   )
 }
 
-const Test = ({ array }) => {
-  const [active, setActive] = useState(-1)
+const Test = ({ array, multiSelect = false }) => {
+  const [ active, setActive ] = useState(-1)
   
   const getSelected = (key) => {
-    const result = (key === active)? -1: key
-    setActive(result)
+    if (!multiSelect) {
+      const result = (key === active)? -1: key
+      setActive(result)
+    }
   }
 
   return(
@@ -55,7 +61,8 @@ const Test = ({ array }) => {
                 func={() => getSelected(i)}
                 bool={i === active} 
                 desc={item.desc}
-                year={item.year}/>
+                year={item.year}
+                multiSelect={multiSelect}/>
         )
       })}
     </div>
