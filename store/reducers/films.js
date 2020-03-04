@@ -9,7 +9,7 @@ const initialState = {
   errorMessage: ''
 }
 
-const Films = handleActions(
+export default handleActions(
   {
     [request]: (state) => ({...state, loading: true}),
     [getFilms]: (state,{payload}) => ({...state, films: [...state.films, ...payload.films]}),
@@ -17,3 +17,4 @@ const Films = handleActions(
   },
   initialState
 )
+

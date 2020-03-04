@@ -1,5 +1,7 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux'
 
-const reducer = combineReducers({})
+import films from '../reducers.films'
+
+const reducer = combineReducers({films})
 
 export default createStore (reducer, applyMiddleware())
