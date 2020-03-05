@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react'
 import styled from 'styled-components'
+import uuid from 'react-uuid'
 
 const T = styled.div`
   position: relative;

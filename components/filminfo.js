@@ -6,7 +6,7 @@ import Poster from './poster'
 const FilmWrapper = styled.div`
   position: relative;
   display: flex;
-
+  flex-direction: row;
 `
 
 const Film = () => {

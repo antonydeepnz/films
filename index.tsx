@@ -53,6 +53,7 @@ const App = () => {
 
   return(
     <MainContainer>
+    <Test array={data1} />
       <Wrap>
         <Poster src={'/h1XjBJoWdOh8aegBoVYKgABQZSL.jpg'} />
       </Wrap>
