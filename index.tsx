@@ -41,7 +41,7 @@ const App = () => {
   return(
     <MainContainer>
       <Test array={data1} />
-      <img src={GET_IMAGE('/tbhdm8UJAb4ViCTsulYFL3lxMCd.jpg', 300)}/>
+      <img src={GET_IMAGE('/h1XjBJoWdOh8aegBoVYKgABQZSL.jpg', 200)}/>
     </MainContainer>
   )
 }
