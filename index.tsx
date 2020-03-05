@@ -11,13 +11,23 @@ import Test from './components/tests'
 
 import { getFilms, getError } from './store/actions/actions'
 import { GET_IMAGE, BASIC_URL, API_KEY } from './utils/api_config'
-// import axiosOMBD from './utils/axios_inst'
+
+import Poster from './components/poster'
 
 const MainContainer = styled.div`
   position: relative;
   width: 100%;
   height: 50%;
-  background-color: grey; 
+  background-color: grey;
+  diplay: flex;
+`
+
+const Wrap = styled.div`
+  position: relative;
+  display: block;
+  background-color: white;
+  width: 500px;
+  height: 500px;
 `
 
 const data1 = [
@@ -40,10 +50,14 @@ const App = () => {
 
   return(
     <MainContainer>
-      <Test array={data1} />
-      <img src={GET_IMAGE('/h1XjBJoWdOh8aegBoVYKgABQZSL.jpg', 200)}/>
+      <Wrap>
+        <Poster src={'/h1XjBJoWdOh8aegBoVYKgABQZSL.jpg'} />
+      </Wrap>
     </MainContainer>
   )
 }
+
+// <Test array={data1} />
+//       <img src={GET_IMAGE('/h1XjBJoWdOh8aegBoVYKgABQZSL.jpg', 200)}/>
 
 render(<App />, document.getElementById('root'));
