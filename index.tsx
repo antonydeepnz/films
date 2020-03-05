@@ -10,7 +10,7 @@ import Accordion from './components/accordionItem'
 import Test from './components/tests'
 
 import { getFilms, getError } from './store/actions/actions'
-import { GET_IMAGE } from './utils/api_config'
+import { GET_IMAGE, BASIC_URL, API_KEY } from './utils/api_config'
 // import axiosOMBD from './utils/axios_inst'
 
 const MainContainer = styled.div`
@@ -28,10 +28,11 @@ const data1 = [
 ]
 
 const App = () => {
-
+//https://api.themoviedb.org/3/search/movie?api_key=47e345218071181a1ca1d4eb072cc0cf&language=EN&query=Jack+Reacher
   useEffect(() => {
     const getFilm = async() => {
-      const res = await axios.get('https://api.themoviedb.org/3/movie/76341?api_key=47e345218071181a1ca1d4eb072cc0cf&language=EN')
+      const query = (query = '') => (`${BASIC_URL}search/movie?${API_KEY}&query=${query}`)
+      const res = await axios.get(query('jack reacher'))
       console.log(res.data)
     }
     getFilm()
