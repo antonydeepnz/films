@@ -32,7 +32,7 @@ const App = () => {
   useEffect(() => {
     const getFilm = async() => {
       const query = (query = '') => (`${BASIC_URL}search/movie?${API_KEY}&query=${query}`)
-      const res = await axios.get(query('jack reacher'))
+      const res = await axios.get(query('Hobbit'))
       console.log(res.data)
     }
     getFilm()
