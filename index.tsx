@@ -41,14 +41,23 @@ const App = () => {
 //https://api.themoviedb.org/3/search/movie?api_key=47e345218071181a1ca1d4eb072cc0cf&language=EN&query=Jack+Reacher
   useEffect(() => {
     const getFilm = async() => {
+      const resArr = []
+      const Films = [] 
       const query = (query = '') => (`${BASIC_URL}search/movie?${API_KEY}&language=ru-RU&query=${query}`)
       const result = await axios.get(query('Matrix'))
       // const genres = await axios.get(`${BASIC_URL}genre/movie/list?${API_KEY}&language=ru-RU`)
-      console.log(result.data.results)
-      result.data.results.forEach(item => (console.log(item.id)))
-      // console.log(genres.data)
-      const res = await axios.get('https://api.themoviedb.org/3/movie/76341?api_key=47e345218071181a1ca1d4eb072cc0cf&language=ru-RU')
-      console.log(res.data)
+      //console.log(result.data.results)
+      result.data.results.forEach(item => (resArr.push(item.id)))
+      console.log(resArr)
+
+      resArr.forEach(async(item) => {
+        const result = await axios.get(`https://api.themoviedb.org/3/movie/${item}?api_key=47e345218071181a1ca1d4eb072cc0cf&language=ru-RU`)
+        //console.log(result.data)
+        Films.push(result.data)
+      })
+      console.log(Films)
+      // const res = await axios.get('https://api.themoviedb.org/3/movie/76341?api_key=47e345218071181a1ca1d4eb072cc0cf&language=ru-RU')
+      //console.log(res.data)
     }
     getFilm()
   })
