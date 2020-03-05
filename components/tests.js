@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import styled from 'styled-components'
 
 const T = styled.div`
@@ -17,10 +17,13 @@ const Image = styled.img`
 const Two = ({desc, year, bool, getHeight}) => {
   const ref = useRef(null)
 
+  useEffect(()=> {
+    console.log(ref.current)
+  },[]) 
+
   return(
     <T ref={ref} isOpen={bool}>
       <p>{desc}</p><p>{year}</p>
-      {console.log(ref.current.scrollHeight)}
     </T>
   )
 }
@@ -29,18 +32,20 @@ const One = ({title, desc, year, func, bool, multiSelect}) => {
   const [ opened, setOpened ] = useState(false)
   const ref = useRef(null)
 
+  useEffect(()=> {
+    console.log(ref.current.scrollHeight)
+  }) 
+
   const handleClick = () => {
     multiSelect
       ? setOpened(!opened)
       : func()
-    console.log(ref.current.scrollHeight)
   }
   return(
-    <div ref={ref} onClick={handleClick} style={{position: "relative", height: 'auto'}}>
+    <div onClick={handleClick} style={{position: "relative", height: 'auto'}}>
       {`${title}-${bool || opened}`}
       <Image isOpen={bool || opened} src="https://img.icons8.com/metro/26/000000/chevron-right.png" />
-      
-      <T isOpen={bool || opened} desc={desc} year={year}/>
+      <T ref={ref} isOpen={bool || opened} desc={desc} year={year}/>
     </div>
   )
 }
