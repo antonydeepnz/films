@@ -10,6 +10,7 @@ import Accordion from './components/accordionItem'
 import Test from './components/tests'
 
 import { getFilms, getError } from './store/actions/actions'
+import { GET_IMAGE } from './utils/api_config'
 // import axiosOMBD from './utils/axios_inst'
 
 const MainContainer = styled.div`
@@ -31,7 +32,7 @@ const App = () => {
   useEffect(() => {
     const getFilm = async() => {
       const res = await axios.get('https://api.themoviedb.org/3/movie/76341?api_key=47e345218071181a1ca1d4eb072cc0cf&language=EN')
-      console.log(res.data)//https://cors-anywhere.herokuapp.com/
+      console.log(res.data)
     }
     getFilm()
   })
@@ -39,6 +40,7 @@ const App = () => {
   return(
     <MainContainer>
       <Test array={data1} />
+      <img src={GET_IMAGE('/tbhdm8UJAb4ViCTsulYFL3lxMCd.jpg', 300)}/>
     </MainContainer>
   )
 }
