@@ -27,6 +27,15 @@ const data1 = [
 ]
 
 const App = () => {
+
+  useEffect(() => {
+    const getFilm = async() => {
+      const res = await axios.get('https://api.themoviedb.org/3/movie/76341?api_key=47e345218071181a1ca1d4eb072cc0cf&language=EN')
+      console.log(res.data)//https://cors-anywhere.herokuapp.com/
+    }
+    getFilm()
+  })
+
   return(
     <MainContainer>
       <Test array={data1} />
