@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { GET_IMAGE } from '../utils/api_config'
 
 const Image = styled.img`
-  position: absolute;
+  position: relative;
   top: 15px;
   left: -15px;
 `
