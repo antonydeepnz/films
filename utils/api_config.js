@@ -6,9 +6,5 @@
 export const CORS_AVOID = 'https://cors-anywhere.herokuapp.com/' 
 export const BASIC_URL = `https://api.themoviedb.org/3/`
 export const API_KEY = 'api_key=47e345218071181a1ca1d4eb072cc0cf'
-export const API_METHOD = () => {}
-
-
-export const REQUEST_URL = `${CORS}${BASIC_URL}`
-
+export const LANGUAGE = (lang) => `&language=${lang}`
 //https://api.themoviedb.org/3/movie/76341?api_key=47e345218071181a1ca1d4eb072cc0cf&language=EN
