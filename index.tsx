@@ -42,11 +42,13 @@ const App = () => {
   useEffect(() => {
     const getFilm = async() => {
       const query = (query = '') => (`${BASIC_URL}search/movie?${API_KEY}&language=ru-RU&query=${query}`)
-      ///genre/movie/list
-      const res = await axios.get(query('Matrix'))
-      const genres = await axios.get(`${BASIC_URL}genre/movie/list?${API_KEY}&language=ru-RU`)
+      const result = await axios.get(query('Matrix'))
+      // const genres = await axios.get(`${BASIC_URL}genre/movie/list?${API_KEY}&language=ru-RU`)
+      console.log(result.data.results)
+      result.data.results.forEach(item => (console.log(item.id)))
+      // console.log(genres.data)
+      const res = await axios.get('https://api.themoviedb.org/3/movie/76341?api_key=47e345218071181a1ca1d4eb072cc0cf&language=ru-RU')
       console.log(res.data)
-      console.log(genres.data)
     }
     getFilm()
   })
