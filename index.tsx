@@ -41,9 +41,12 @@ const App = () => {
 //https://api.themoviedb.org/3/search/movie?api_key=47e345218071181a1ca1d4eb072cc0cf&language=EN&query=Jack+Reacher
   useEffect(() => {
     const getFilm = async() => {
-      const query = (query = '') => (`${BASIC_URL}search/movie?${API_KEY}&query=${query}`)
-      const res = await axios.get(query('Hobbit'))
+      const query = (query = '') => (`${BASIC_URL}search/movie?${API_KEY}&language=ru-RU&query=${query}`)
+      ///genre/movie/list
+      const res = await axios.get(query('Matrix'))
+      const genres = await axios.get(`${BASIC_URL}genre/movie/list?${API_KEY}&language=ru-RU`)
       console.log(res.data)
+      console.log(genres.data)
     }
     getFilm()
   })
