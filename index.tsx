@@ -53,7 +53,7 @@ const App = () => {
       resArr.forEach(async(item) => {
         const result = await axios.get(`https://api.themoviedb.org/3/movie/${item}?api_key=47e345218071181a1ca1d4eb072cc0cf&language=ru-RU`)
         //console.log(result.data)
-        Films.push(result.data)
+        await Films.push(result.data)
       })
       console.log(Films)
       // const res = await axios.get('https://api.themoviedb.org/3/movie/76341?api_key=47e345218071181a1ca1d4eb072cc0cf&language=ru-RU')
@@ -64,10 +64,7 @@ const App = () => {
 
   return(
     <MainContainer>
-    <Test array={data1} />
-      <Wrap>
-        <Poster src={'/h1XjBJoWdOh8aegBoVYKgABQZSL.jpg'} />
-      </Wrap>
+      
     </MainContainer>
   )
 }
@@ -76,3 +73,9 @@ const App = () => {
 //       <img src={GET_IMAGE('/h1XjBJoWdOh8aegBoVYKgABQZSL.jpg', 200)}/>
 
 render(<App />, document.getElementById('root'));
+
+
+// <Wrap>
+//         <Poster src={'/h1XjBJoWdOh8aegBoVYKgABQZSL.jpg'} />
+//       </Wrap>
+//        <Test array={data1} />

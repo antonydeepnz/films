@@ -16,14 +16,14 @@ const Image = styled.img`
 `
 
 const Two = ({desc, year, bool, getHeight}) => {
-  const ref = useRef(null)
+  const itemRef = useRef(null)
 
   useEffect(()=> {
-    console.log(ref.current)
+
   },[]) 
 
   return(
-    <T ref={ref} isOpen={bool}>
+    <T ref={itemRef} isOpen={bool}>
       <p>{desc}</p><p>{year}</p>
     </T>
   )
@@ -33,14 +33,14 @@ const One = ({title, desc, year, func, bool, multiSelect}) => {
   const [ opened, setOpened ] = useState(false)
   const ref = useRef(null)
 
-  useEffect(()=> {
-    console.log(ref.current.scrollHeight)
-  }) 
+  // useEffect(()=> {
+  //   console.log(ref.current.scrollHeight)
+  // }) 
 
   const handleClick = () => {
     multiSelect
       ? setOpened(!opened)
-      : func()
+      : func() 
   }
   return(
     <div onClick={handleClick} style={{position: "relative", height: 'auto'}}>
