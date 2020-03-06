@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import styled from 'styled-components'
 
 import SVGIcon from './icon'
@@ -11,7 +11,7 @@ const Wrapper = styled.div`
   background-color: lightblue;
   margin: 3px;
   border-radius: 15px;
-  height: 35px;
+  height: 2em;
   width: ${props => props.show? '250px' : '24px'};
   transition: width 0.5s;
 `
@@ -24,18 +24,20 @@ const Input = styled.input`
 
 const Search = ({}) => {
   const [ show, setShow ] = useState(false)
+  const inpRef = useRef(null)
 
   const handleIconClick = () => {
     setShow(!show)
+    if(inpRef.current) {inpRef.current.focus()}
   }
   return(
     <Wrapper show={show} 
       onMouseEnter={handleIconClick} 
       onMouseLeave={handleIconClick} >
-      <SVGIcon width={24} height={24}>
+      <SVGIcon width={24} height={24} >
         { seacrhIcon }
       </SVGIcon>
-      <Input show={show}/>
+      <Input ref={inpRef} show={show}/>
     </Wrapper>
   )
 } 
