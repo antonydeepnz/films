@@ -14,6 +14,8 @@ import { GET_IMAGE, BASIC_URL, API_KEY } from './utils/api_config'
 
 import Poster from './components/poster'
 
+import Search from './components/search'
+
 const MainContainer = styled.div`
   position: relative;
   width: 100%;
@@ -64,7 +66,7 @@ const App = () => {
 
   return(
     <MainContainer>
-      
+      <Search />
     </MainContainer>
   )
 }
