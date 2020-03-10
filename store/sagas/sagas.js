@@ -4,7 +4,7 @@ import Axios from '../../axios_inst'
 import { API_KEY } from '../../utils/'
 
 function* getFilm(){
-  try{
+  try {
 
 
   }
@@ -14,7 +14,7 @@ function* getFilm(){
 }
 
 function* getGenres(){
-  try{
+  try {
     const genres = yield call(Axios.get(`${API_KEY}&language=en-EN`), ) 
     console.log(genres.data)
   } catch(err){

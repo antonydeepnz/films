@@ -3,11 +3,13 @@ import { render } from 'react-dom'
 // import './style.css'
 import styled from 'styled-components'
 import axios from 'axios'
+import { Provider } from 'react-redux'
 
 import Demo from './components/test'
 
 import Accordion from './components/accordionItem'
 import Test from './components/tests'
+import store from './store/store'
 
 import { getFilms, getError } from './store/actions/actions'
 import { GET_IMAGE, BASIC_URL, API_KEY } from './utils/api_config'
@@ -75,7 +77,10 @@ const App = () => {
 // <Test array={data1} />
 //       <img src={GET_IMAGE('/h1XjBJoWdOh8aegBoVYKgABQZSL.jpg', 200)}/>
 
-render(<App />, document.getElementById('root'));
+render(
+<Provider store={store}>
+  <App />
+</Provider>, document.getElementById('root'));
 
 
 // <Wrap>
