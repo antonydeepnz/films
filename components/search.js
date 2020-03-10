@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import styled from 'styled-components'
 
 import SVGIcon from './icon'
-import { seacrhIcon } from '../utils/icons'
+import { seacrhIcon, ChevronIcon } from '../utils/icons'
 
 const Wrapper = styled.div`
   position: relative;
@@ -35,7 +35,7 @@ const Search = ({}) => {
       onMouseEnter={handleIconClick} 
       onMouseLeave={handleIconClick} >
       <SVGIcon width={24} height={24} >
-        { seacrhIcon }
+        { ChevronIcon }
       </SVGIcon>
       <Input ref={inpRef} show={show}/>
     </Wrapper>
